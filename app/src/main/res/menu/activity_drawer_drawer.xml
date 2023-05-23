@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/txt_Home" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile_place_holder"
+            android:title="@string/text_profile" />
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_menu_dashboard"
+            android:title="@string/txt_dashboard" />
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/ic_wallet"
+            android:title="@string/wallet"/>
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_menu_history"
+            android:title="@string/text_title_History" />
+
+        <item
+            android:id="@+id/nav_refferral"
+            android:icon="@drawable/ic_nav_refferal_code"
+            android:title="@string/referral" />
+
+
+        <item
+            android:id="@+id/nav_manage_doc"
+            android:icon="@drawable/ic_menu_docs"
+            android:title="@string/txt_documents" />
+
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/ic_menu_notifications"
+            android:title="@string/txt_noitification" />
+        <!-- temprorly hidden!-->
+<!--        <item-->
+<!--            android:id="@+id/nav_subscription"-->
+<!--            android:icon="@drawable/ic_menu_subscription"-->
+<!--            android:title="@string/txt_subscription" />-->
+
+        <item
+            android:id="@+id/nav_support"
+            android:icon="@drawable/ic_menu_support"
+            android:title="@string/txt_support" />
+
+        <item
+            android:id="@+id/nav_language"
+            android:icon="@drawable/language_icon"
+            android:title="@string/languages" />
+
+        <item
+            android:id="@+id/nav_app_status"
+            android:icon="@drawable/ic_app_status"
+            android:title="@string/app_status" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="@string/txt_logout" />
+
+    </group>
+
+</menu>
+

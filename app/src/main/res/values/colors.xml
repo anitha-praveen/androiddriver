@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFD60B</color>
+    <color name="colorPrimary700">#2F2E2E</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#61000000</color>
+    <color name="orange">#FEAC1C</color>
+    <color name="clr_trans">#52000000</color>
+    <color name="clr_222B45">#222B45</color>
+    <color name="clr_FB4A46">#ebaf04</color>
+    <color name="buttonTextColor">#ffffff</color>
+    <color name="clr_gray">#384957</color>
+    <color name="clr_8992A3">#8992A3</color>
+    <color name="clr_transparent">#00000000</color>
+    <color name="clr_5497FF">#5497FF</color>
+    <color name="clr_E4E9F2">#E4E9F2</color>
+    <color name="clr_form_disabled">#ECE9E9</color>
+    <color name="clr_F2F2F2">#F2F2F2</color>
+    <color name="clr_F7F9FC">#F7F9FC</color>
+    <color name="clr_8F9BB3">#8F9BB3</color>
+    <color name="clr_ACB1C0">#ACB1C0</color>
+    <color name="colorPrimaryDark">#32344b</color>
+    <color name="clr_green">#6bc33f</color>
+    <color name="clr_FF9391">#FF9391</color>
+    <color name="colorPrimaryAlternate_light">#91ffb9</color>
+    <color name="clr_CCCCCC">#CCCCCC</color>
+    <color name="clr_828282">#828282</color>
+    <color name="colorPrimaryDark_click">#32344b</color>
+    <color name="while_dark">#ffffff</color>
+    <color name="clr_CA2925">#CA2925</color>
+    <color name="clr_D5BEBD">#D5BEBD</color>
+    <color name="clr_F6F3F3">#F6F3F3</color>
+    <color name="clr_333333">#333333</color>
+    <color name="clr_E7E7E7">#E7E7E7</color>
+    <color name="clr_F6F2F2">#F6F2F2</color>
+    <color name="clr_555555">#555555</color>
+    <color name="clr_99000000">#99000000</color>
+    <color name="clr_gray_light2">#807d7d</color>
+    <color name="clr_4CE5B1">#4CE5B1</color>
+    <color name="color_red">#e93838</color>
+    <color name="clr_eef2fb">#eef2fb</color>
+    <color name="clr_051033">#051033</color>
+    <color name="clr_88888A">#88888A</color>
+    <color name="clr_B8BDC5">#B8BDC5</color>
+    <color name="clr_orange_drk">#17A049</color>
+    <color name="clr_dia_bg">#99000000</color>
+    <color name="light_grey">#D3D3D3</color>
+    <color name="clr_00AE73">#00AE73</color>
+    <color name="amnt_clr_blue">#3557BB</color>
+    <color name="dash_red">#F05A50</color>
+    <color name="bouns_clr">#CA62C9</color>
+    <color name="clr_line1">#cccaca</color>
+    <color name="clr_line">#d9cac7c7</color>
+    <color name="while_light2">#F2F2F2</color>
+    <color name="color979797">#979797</color>
+    <color name="dab_red">#FB4A46</color>
+    <color name="while_light">#f1efef</color>
+    <color name="clr_D4D4D4">#D4D4D4</color>
+    <color name="color619CF8">#619CF8</color>
+    <color name="clr_F5F5F5">#F5F5F5</color>
+    <color name="clr_light_blue">#7FBBDA</color>
+    <color name="clr_light_blue_two">#A4E3E5</color>
+    <color name="blue">#0000FF</color>
+    <color name="dark_gray">#808080</color>
+    <color name="txtColorGray">#707070</color>
+    <color name="clr_C4C4C4">#C4C4C4</color>
+    <color name="clr_2F2E2E">#2F2E2E</color>
+    <color name="clr_DDDBDB">#DDDBDB</color>
+    <color name="clr_F6F7FD">#F6F7FD</color>
+    <color name="clr_EAEAEA">#EAEAEA</color>
+    <color name="clr_E76565">#E76565</color>
+    <color name="clr_757474">#757474</color>
+    <color name="clr_D9D9D9">#D9D9D9</color>
+    <color name="clr_606060">#606060</color>
+    <color name="clr_636363">#636363</color>
+    <color name="clr_616161">#616161</color>
+<!--    dark mode colors-->
+    <color name="dark_mode_splash_bg_color">#FFFFFFFF</color>
+    <color name="clr_525151">#525151</color>
+    <color name="clr_000000">#000000</color>
+    <color name="clr_7E7D7D">#7E7D7D</color>
+    <color name="clr_FF0000">#FF0000</color>
+
+    <!--    <integer-array name="androidcolors">-->
+<!--        <item>@color/amnt_clr_blue</item>-->
+<!--        <item>@color/dash_red</item>-->
+<!--        <item>@color/bouns_clr</item>-->
+<!--    </integer-array>-->
+
+</resources>

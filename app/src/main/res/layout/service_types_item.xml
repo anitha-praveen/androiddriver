@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/chkbox"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rect_chkbox"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@+id/chkbox"
+        android:fontFamily="@font/roboto_medium"
+        android:text="fhf"
+        android:textAllCaps="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_14sdp" />
+
+</RelativeLayout>

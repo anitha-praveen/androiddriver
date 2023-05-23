@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.dashboard.dashBalance.DashBalanceVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/clr_F7F9FC">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/balance_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.translationModel.text_balance_header}"
+                android:textColor="@color/clr_88888A"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/day_bal_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/balance_header"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tdy_bal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.text_todays_balance}"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <ImageView
+                            android:id="@+id/balimage"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_below="@+id/tdy_bal"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            app:srcCompat="@drawable/ic_down_balance" />
+
+
+                        <TextView
+                            android:id="@+id/bal_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/balimage"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@{viewModel.todayBal}"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/roboto_medium" />
+
+                        <TextView
+                            android:id="@+id/tdy_incom_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/bal_amnt"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@{viewModel.translationModel.text_today_note}"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/color979797" />
+                        <View
+                            android:id="@+id/View"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_below="@+id/tdy_incom_txt" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_3sdp"
+                            android:layout_below="@+id/View"
+                            android:background="@color/clr_00AE73" />
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="wrap_content" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/sterday_bal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.text_yda_balance}"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+
+                        <ImageView
+                            android:id="@+id/imageFines"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_below="@+id/sterday_bal"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            app:srcCompat="@drawable/fines_up_arrow" />
+
+                        <TextView
+                            android:id="@+id/sterday_bal_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageFines"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.yesterdayBal}"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/strday_incom_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/sterday_bal_amnt"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/color979797"
+                            android:layout_centerHorizontal="true"
+                            android:text="@{viewModel.translationModel.text_yda_note}"
+                            android:textSize="12dp" />
+
+
+                        <View
+                            android:id="@+id/sterday_View"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_below="@+id/strday_incom_txt" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_3sdp"
+                            android:layout_below="@+id/sterday_View"
+                            android:background="@color/clr_5497FF" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/week_month_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/day_bal_lay"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/clr_4CE5B1">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp">
+
+
+                        <TextView
+                            android:id="@+id/week_bal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.text_week_balance}"
+                            android:maxLines="1"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/week_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/week_bal"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="@{viewModel.weekBal}"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/week_income_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/week_amnt"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.text_week_note}"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/roboto_medium" />
+
+                        <View
+                            android:id="@+id/week_View"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_below="@+id/week_income_txt" />
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="wrap_content" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp">
+
+
+                        <TextView
+                            android:id="@+id/monthly_bal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.text_month_balance}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/roboto_medium"/>
+
+                        <TextView
+                            android:fontFamily="@font/roboto_medium"
+                            android:id="@+id/monthly_bal_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/monthly_bal"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="@{viewModel.monthBal}"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/monthly_income_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/monthly_bal_amnt"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="@{viewModel.translationModel.text_month_note}"
+                            android:textColor="@color/white"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/mnthly_View"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_below="@+id/monthly_income_txt" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/balance_txt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/week_month_lay"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_horizontal"
+                android:textColor="@color/clr_88888A"
+                android:text="@{viewModel.translationModel.text_balance_note}"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/amount_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/balance_txt"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@{viewModel.totalAMnt}"
+                android:textColor="@color/amnt_clr_blue"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/total_earnings_amnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/amount_txt"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:textColor="@color/clr_88888A"
+                android:text="@{viewModel.translationModel.text_total_note}"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <LinearLayout
+                android:id="@+id/chart_cal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/balance_txt"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@drawable/rect_curve_bordered_filwhite"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/_8sdp">
+
+                <Spinner
+                    android:background="@null"
+                    android:id="@+id/spin_dataWise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/_70sdp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp" />
+                <View
+                    android:layout_width="1dp"
+                    android:background="@color/clr_D4D4D4"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:padding="@dimen/_4sdp"
+                    app:srcCompat="@drawable/ic_down_gray_arrow"
+                    android:layout_height="25dp"/>
+
+            </LinearLayout>
+
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_below="@+id/chart_cal"
+                android:layout_marginTop="@dimen/_15sdp" />
+
+            <View
+                android:id="@+id/chart_View"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_below="@+id/chart" />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</layout>

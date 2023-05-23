@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.rodaClone.driver.BuildConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.trip.TripFragmentVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/trip_map_frag"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/menu_ham"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/ic_ham"
+                    android:onClick="@{()->viewModel.onMenuClick()}"
+                    android:padding="@dimen/_3sdp"
+                    android:scaleType="fitXY"
+                    app:driverProfilePicInTrip="@{viewModel.profileImage}"
+                    app:srcCompat="@drawable/ic_user" />
+
+                <TextView
+                    android:id="@+id/btn_sos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:background="@drawable/ic_sos_back"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:onClick="@{()->viewModel.onSosClick()}"
+                    android:text="SOS"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/ic_round_all_white"
+                    android:fontFamily="@font/roboto_bold"
+                    android:padding="@dimen/_6sdp"
+                    android:text="@{viewModel.reqNumber}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/btn_sos"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_alignParentEnd="true"-->
+                <!--                    android:layout_marginTop="@dimen/_20sdp"-->
+                <!--                    android:layout_marginEnd="@dimen/_14sdp"-->
+                <!--                    android:background="@drawable/btn_primary"-->
+                <!--                    android:fontFamily="@font/roboto_medium"-->
+                <!--                    android:minWidth="0dp"-->
+                <!--                    android:minHeight="0dp"-->
+                <!--                    android:onClick="@{()->viewModel.sosclick()}"-->
+                <!--                    android:paddingStart="@dimen/_10sdp"-->
+                <!--                    android:paddingEnd="@dimen/_10sdp"-->
+                <!--                    android:text="@{viewModel.translationModel.txt_sos}"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    android:textSize="@dimen/_12sdp" />-->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_below="@+id/btn_sos"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/waiting_bg"
+                    android:elevation="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_17sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:visibility="@{viewModel.isArrived? !viewModel.showTripTime ? View.VISIBLE:View.GONE : View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.translationModel.txt_waiting_time}"
+                        android:textColor="@color/clr_222B45"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.waitingTime}"
+                        android:textColor="@color/clr_222B45"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_below="@+id/btn_sos"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/waiting_bg"
+                    android:elevation="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_17sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:visibility="@{viewModel.showTripTime?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.translationModel.trip_time}"
+                        android:textColor="@color/clr_222B45"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.tripTime}"
+                        android:textColor="@color/clr_222B45"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_dialog"
+                    android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+
+            </RelativeLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/trip_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:behavior_hideable="false"
+                app:behavior_peekHeight="@dimen/_62sdp"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <LinearLayout
+                    android:id="@+id/bottom_sheet_persistent"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@{viewModel.isTripStarted?@drawable/ic_white_top_round: @drawable/ic_sandle_top_round}"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.showAddress?View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto_regular"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@{viewModel.tripAddress}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-6dp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_persistent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rr2_trip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/pro_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:visibility="@{viewModel.isInstantJob ? View.GONE : View.VISIBLE}"
+                                app:cardCornerRadius="@dimen/_10sdp">
+
+                                <ImageView
+                                    android:id="@+id/imgUserPic"
+                                    android:layout_width="@dimen/_35sdp"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:scaleType="fitXY"
+                                    app:srcCompat="@drawable/profile_place_holder" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/driver_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_toEndOf="@id/pro_img"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text='@{viewModel.userName}'
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                android:visibility="@{viewModel.isInstantJob ? View.GONE : View.VISIBLE}" />
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_trip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/driver_name"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:layout_toEndOf="@id/pro_img"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.isInstantJob ? View.GONE : View.VISIBLE}">
+
+                                <ImageView
+                                    android:id="@+id/star_invoice"
+                                    android:layout_width="@dimen/_12sdp"
+                                    android:layout_height="@dimen/_12sdp"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:src="@drawable/star_new" />
+
+                                <TextView
+                                    android:id="@+id/invoice_rating"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:text="@{viewModel.userRatingString}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rLayOut"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.isInstantJob()?View.GONE:View.VISIBLE}">
+
+
+                                <ImageView
+                                    android:id="@+id/phone_trip"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:onClick="@{viewModel::onCallClick}"
+                                    android:src="@drawable/ic_phone_new" />
+
+                                <ImageView
+                                    android:id="@+id/naviagtion"
+                                    android:layout_width="@dimen/_35sdp"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:onClick="@{viewModel::onClickNavigation}"
+                                    android:src="@drawable/icons_navigation_gradient"
+                                    android:visibility="@{viewModel.showGoogleMapNavButton?View.VISIBLE:View.GONE}" />
+
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/google_nav"
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:onClick="@{viewModel::onClickNavigation}"
+                                android:src="@drawable/icons_navigation_gradient"
+                                android:visibility="@{viewModel.showGoogleMapNavButton? viewModel.isInstantJob() ? View.VISIBLE:View.GONE:View.GONE}" />
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/horizontalLine_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_below="@id/rr2_trip"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:background="@color/clr_DDDBDB"
+                            android:visibility="@{viewModel.isInstantJob()?View.GONE:View.VISIBLE}" />
+
+
+                        <LinearLayout
+                            android:id="@+id/ll4_trip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/horizontalLine_two"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.4">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="@{viewModel.tripPaymentMode}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_15sdp"
+                                    app:drawableLeft="@{viewModel.tripPaymentMode.equals(`WALLET`)?@drawable/ic_wallet_new: viewModel.tripPaymentMode.equals(`CARD`)?@drawable/ic_card_yellow:@drawable/ic_cash}" />
+
+
+                            </RelativeLayout>
+
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginBottom="@dimen/_12sdp"
+                                android:layout_weight="0.2"
+                                android:visibility="@{viewModel.isOutsationOrRental?View.VISIBLE:View.GONE}" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginBottom="@dimen/_12sdp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_line_divider"
+                                android:visibility="@{viewModel.isOutsationOrRental?View.GONE:View.VISIBLE}" />
+
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.4"
+                                android:visibility="@{viewModel.isOutStationTrip?View.GONE:viewModel.isRentalTrip?View.GONE:View.VISIBLE}">
+
+
+                                <TextView
+                                    android:id="@+id/txt_distance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="@{viewModel.translationModel.txt_distance}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_toEndOf="@+id/txt_distance"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="@{viewModel.tripDistance}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_15sdp" />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/ll5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll4_trip"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/roboto_regular"
+                                android:maxLines="2"
+                                android:text="@{viewModel.translationModel.txt_user_notes+`:`}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"
+                                android:visibility="@{viewModel.showNotes?View.VISIBLE:View.GONE}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/roboto_regular"
+                                android:maxLines="2"
+                                android:text="@{viewModel.userNotes}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp"
+                                android:visibility="@{viewModel.showNotes?View.VISIBLE:View.GONE}" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rr6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll5"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginBottom="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.isArrived?View.VISIBLE:View.GONE}">
+
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_12sdp"
+                                    android:layout_marginEnd="@dimen/_12sdp"
+                                    android:background="@drawable/btn_primary"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:minHeight="@dimen/_30sdp"
+                                    android:textAllCaps="false"
+                                    android:onClick="@{()->viewModel.onclickChangeTripStatus()}"
+                                    android:text="@{viewModel.isTripStarted ? viewModel.translationModel.text_end_trip : viewModel.translationModel.text_start_trip}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/btn_primary"
+                                android:fontFamily="@font/roboto_bold"
+                                android:onClick="@{()->viewModel.onClickDriverArrive()}"
+                                android:text="@{viewModel.translationModel.text_arrived}"
+                                android:textColor="@color/black"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/_12sdp"
+                                android:visibility="@{viewModel.isArrived ? View.GONE : View.VISIBLE}" />
+
+                        </RelativeLayout>
+
+                        <com.ncorti.slidetoact.SlideToActView
+                            android:id="@+id/slide_to_cancel"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_below="@+id/rr6"
+                            android:layout_marginStart="@dimen/_30sdp"
+                            android:layout_marginEnd="@dimen/_30sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:visibility="@{viewModel.isTripStarted ? View.GONE : View.VISIBLE}"
+                            app:area_margin="2dp"
+                            app:icon_margin="@dimen/_4sdp"
+                            app:outer_color="@color/clr_ACB1C0"
+                            app:slider_height="@dimen/_30sdp"
+                            app:slider_icon="@drawable/ic_close_reject"
+                            app:slider_icon_color="@color/clr_FB4A46"
+                            app:slider_reversed="false"
+                            app:text="@{viewModel.translationModel.txt_slide_to_cancel}"
+                            app:text_color="@color/white"
+                            app:text_size="@dimen/_14sdp"
+                            app:text_style="bold" />
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/skipOrReject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                style="@style/notDraggable"
+                app:behavior_hideable="true"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/skipTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_gravity="end"
+                    android:fontFamily="@font/roboto_medium"
+                    android:onClick="@{()->viewModel.onClickSkipPhoto()}"
+                    android:text="@{viewModel.translationModel.txt_skip}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="@{viewModel.isUserPicUpload ? View.VISIBLE:View.GONE}" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="@{viewModel.translationModel.txt_user_photo_deny}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/driverCard"
+                    android:layout_width="@dimen/_66sdp"
+                    android:layout_height="@dimen/_66sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_gravity="center_horizontal"
+                    app:cardBackgroundColor="@color/clr_DDDBDB"
+                    app:cardCornerRadius="@dimen/_33sdp">
+
+                    <ImageView
+                        android:id="@+id/driverImg"
+                        android:layout_width="@dimen/_66sdp"
+                        android:layout_height="@dimen/_66sdp"
+                        android:padding="@dimen/_8sdp"
+                        app:setImages="@{viewModel.userSelfie}"
+                        android:onClick="@{()->viewModel.onClickUserNight()}"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/ic_user" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10sdp"
+                    android:weightSum="2"
+                    android:visibility="@{viewModel.isUserPicUpload ?View.GONE:View.VISIBLE}">
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        android:onClick="@{()->viewModel.onClickReject()}"
+                        android:visibility="@{viewModel.isTripStarted?View.GONE:View.VISIBLE}"
+                        android:text="@{viewModel.translationModel.txt_cancel_ride}"
+                        android:textColor="@color/black"
+                        app:strokeColor="@color/color_red"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_12sdp"
+                        app:strokeWidth="@dimen/_1sdp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textAllCaps="false"
+                        android:onClick="@{()->viewModel.onClickSkipPhoto()}"
+                        android:text="@{viewModel.translationModel.txt_skip}"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10sdp"
+                    android:weightSum="2"
+                    android:visibility="@{viewModel.isUserPicUpload ? View.VISIBLE:View.GONE}">
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:onClick="@{()->viewModel.onclickRetakeNightPhoto()}"
+                        android:visibility="@{viewModel.isTripStarted?View.GONE:View.VISIBLE}"
+                        android:text="@{viewModel.translationModel.txt_retake}"
+                        android:textColor="@color/black"
+                        app:strokeColor="@color/color_red"
+                        android:textAllCaps="false"
+                        app:strokeWidth="@dimen/_1sdp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textAllCaps="false"
+                        android:onClick="@{()->viewModel.onClickAcceptNightPhoto()}"
+                        android:text="@{viewModel.translationModel.txt_accept}"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </RelativeLayout>
+
+</layout>

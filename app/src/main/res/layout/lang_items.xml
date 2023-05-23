@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/chk_box"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_2sdp">
+
+        <ImageView
+            android:id="@+id/tick_chk_box"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:background="@drawable/rect_chkbox"
+            android:padding="@dimen/_3sdp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/chkbox_tick" />
+
+
+        <ImageView
+            android:id="@+id/chkbox"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:background="@drawable/rect_chkbox"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/lang_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/chk_box"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@+id/chk_box"
+        android:fontFamily="@font/roboto_medium"
+        android:text="fhf"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_16sdp" />
+
+</RelativeLayout>

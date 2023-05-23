@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.complaints.ComplaintListAdapterVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@{viewModel.isSelected?@drawable/ic_complaint_item_bg:@drawable/ic_complaints_unselected_item_bg}"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:onClick="@{()->viewModel.onClickItem()}">
+
+        <TextView
+            android:id="@+id/complaint_title"
+            android:layout_toStartOf="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@{viewModel.isSelected?@color/buttonTextColor:@color/clr_606060}"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/_13sdp"
+            android:layout_centerVertical="true"
+            android:text="@{viewModel.complaintTitle}"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"/>
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_complaint_item_selected_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="@{viewModel.isSelected?View.VISIBLE:View.GONE}"
+            android:layout_marginEnd="@dimen/_10sdp"/>
+
+
+    </RelativeLayout>
+
+</layout>

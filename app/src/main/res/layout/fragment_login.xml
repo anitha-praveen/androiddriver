@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.loginSignup.login.LoginVM" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:id="@+id/scroll_registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_60sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="start"
+                    android:text="@{viewModel.translationModel.txt_enter_phone_for_verification}"
+                    android:textColor="@color/clr_2F2E2E"
+                    android:textSize="@dimen/_16sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/LinearForgot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:layoutDirection="ltr"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edit_country_code_signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:backgroundTint="@color/black"
+                            android:fontFamily="@font/roboto_regular"
+                            android:onClick="@{()->viewModel.countryChoose()}"
+                            android:hint="@string/_91"
+                            android:layoutDirection="ltr"
+                            android:maxLength="5"
+                            android:focusable="false"
+                            android:paddingStart="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_15sdp"
+                            android:text="@={viewModel.countryCode}"
+                            android:textColor="@color/clr_2F2E2E"
+                            android:textSize="@dimen/_14sdp" />
+
+
+                        <EditText
+                            android:id="@+id/signup_emailorPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:backgroundTint="@color/black"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="@{viewModel.translationModel.hint_phone_number}"
+                            android:inputType="phone"
+                            android:layoutDirection="ltr"
+                            android:maxLength="20"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingEnd="@dimen/_8sdp"
+                            android:text="@={viewModel.emailOrPhone}"
+                            android:textColor="@color/clr_2F2E2E"
+                            android:textColorHint="@color/clr_7E7D7D"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/privacy_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:textColor="@color/clr_636363"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/submit_butt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:elevation="@dimen/_10sdp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:onClick="@{()->viewModel.onClickConfirm()}"
+                        android:paddingTop="@dimen/_3sdp"
+                        android:paddingBottom="@dimen/_3sdp"
+                        android:text="@{viewModel.translationModel.txt_send_otp}"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        app:cornerRadius="@dimen/_5sdp">
+
+                    </com.google.android.material.button.MaterialButton>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+
+
+    </RelativeLayout>
+
+</layout>

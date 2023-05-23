@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.dashboard.dashRateReward.DashRateRewardVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/clr_F7F9FC">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rateRewardHeader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/black"
+                android:text="@{viewModel.translationModel.text_rateReward_header}"
+                android:textSize="@dimen/_12sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/acceptance_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rateRewardHeader"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardMaxElevation="@dimen/_2sdp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/total_trips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@{viewModel.translationModel.txt_acceptance_rate}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/trip_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/total_trips"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_16sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.text_amount}"
+                            android:textColor="@color/clr_00AE73"
+                            android:textAllCaps="true"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="@{viewModel.acceptanceRatio}"
+                            android:textColor="@color/clr_00AE73"
+                            android:textSize="@dimen/_30sdp" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/no_of_trips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/trip_count"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.translationModel.txt_total_orders}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/progress_val"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/no_of_trips"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginRight="@dimen/_12sdp"
+                        android:layoutDirection="ltr"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/zero_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0%"
+                            android:textColor="@color/dab_red"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/half_progrss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="50%"
+                            android:textColor="@color/dab_red"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/full_progrss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:textColor="@color/dab_red"
+                            android:text="100%"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/accep_rate_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/progress_val"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginRight="@dimen/_12sdp"
+                        android:indeterminateOnly="false"
+                        android:layoutDirection="ltr" />
+
+                    <View
+                        android:background="@color/dab_red"
+                        android:id="@+id/space"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_below="@+id/accep_rate_progress" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/captain_rwrd_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acceptance_rate"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{viewModel.translationModel.txt_cptain_reward_header}"
+                android:textSize="@dimen/_12sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/reward_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/captain_rwrd_header"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardMaxElevation="@dimen/_2sdp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:id="@+id/reward_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/rewardPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.translationModel.txt_reward_points}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+                    <LinearLayout
+                        android:id="@+id/rewardRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rewardPoints"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:gravity="bottom">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.text_rate}"
+                            android:textColor="@color/color619CF8"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.review}"
+                            android:textColor="@color/color619CF8"
+                            android:textSize="@dimen/_30sdp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/black"
+                        android:id="@+id/total_reward_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rewardRate"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@{viewModel.translationModel.txt_total_rewards}"
+                        android:textSize="@dimen/_11sdp" />
+                    <TextView
+                        android:fontFamily="@font/roboto_medium"
+                        android:id="@+id/point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/total_reward_point"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@{viewModel.rewardPoint}"
+                        android:textColor="@color/color619CF8"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <View
+                        android:id="@+id/rewardSpacespace"
+                        android:layout_width="match_parent"
+                        android:background="@color/clr_00AE73"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_below="@+id/point" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

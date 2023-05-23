@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.approvalDecline.ApprovalVM" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/menu_ham"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:onClick="@{()->viewModel.onMenuClick()}"
+            app:srcCompat="@drawable/ic_menu_icon" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_cancel_approvaldialog"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_40sdp"
+                app:srcCompat="@drawable/ic_timer" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:text="@{viewModel.title_reson}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:text="@{viewModel.reason}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@{viewModel.translationModel.txt_subscribe}"
+                android:background="@drawable/curved_border_background_gray"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="@{viewModel.showSubscribe? View.VISIBLE : View.GONE}"
+                android:onClick="@{()->viewModel.onClickSubscribe()}"/>
+
+
+            <!--            android:text="@{viewModel.detail_description}"-->
+
+            <!--
+                    android:text="@{viewModel.translationModel.text_driver_declined_note}"
+                    android:text="@string/text_waiting_for_approval"-->
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel_approvaldialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="@{()->viewModel.onClickButton()}"
+            android:text="@{viewModel.buttonText}"
+            android:textAllCaps="true"
+            android:textColor="@color/while_dark"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.document.documentsList.adapter.ChildDocsVM" />
+    </data>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:background="@drawable/rect_curve_color">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{viewModel.documentName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:id="@+id/star_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/name"
+                android:src="@drawable/ic__required"
+                android:visibility="@{viewModel.required?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                android:id="@+id/txt_expired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:visibility="@{viewModel.showExpiredDenied?View.VISIBLE:View.GONE}"
+                android:layout_toEndOf="@id/star_image"
+                android:background="@drawable/red_curved_bg"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="@dimen/_2sdp"
+                android:text="@{viewModel.expiredDenied}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_6sdp" />
+
+            <ImageView
+                android:id="@+id/item_license"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:onClick="@{viewModel::onItemSelected}"
+                android:src="@{viewModel.isUploaded?@drawable/ic_tick :@drawable/ic_plus}" />
+
+
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "784001984561",
+    "firebase_url": "https://roda-clone-default-rtdb.firebaseio.com",
+    "project_id": "roda-clone",
+    "storage_bucket": "roda-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784001984561:android:25babbe1148f6c1d07cd10",
+        "android_client_info": {
+          "package_name": "com.cloneUser.client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784001984561-74goqad87sfgn6kh7sahv218ad5ncq3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloneUser.client",
+            "certificate_hash": "a86ff8fc2f1128f67523f439b6f991066a48632c"
+          }
+        },
+        {
+          "client_id": "784001984561-e03n7vkp699n969p7ocj9jsf99s8rlks.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloneUser.client",
+            "certificate_hash": "8968d187800b277ac115b786baf0357357cfbbe0"
+          }
+        },
+        {
+          "client_id": "784001984561-tevbg63b3uvqdfsednosfjfrgn5o4t1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAytiik7hHuzELzh672kDh019ljNRWdgeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784001984561-tevbg63b3uvqdfsednosfjfrgn5o4t1o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784001984561:android:8fb3e070171d457807cd10",
+        "android_client_info": {
+          "package_name": "com.rodaClone.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784001984561-ohmhvb7oubqbi54f1ol1q7kb60rkjt78.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rodaClone.driver",
+            "certificate_hash": "8968d187800b277ac115b786baf0357357cfbbe0"
+          }
+        },
+        {
+          "client_id": "784001984561-tevbg63b3uvqdfsednosfjfrgn5o4t1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAytiik7hHuzELzh672kDh019ljNRWdgeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784001984561-tevbg63b3uvqdfsednosfjfrgn5o4t1o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/clr_transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_30sdp"
+        android:background="@drawable/bg_purple_thanks">
+
+        <ImageView
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_map_marker" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingTop="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_25sdp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/txt_bg_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:text="@string/txt_bg_location_msg" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:gravity="end"
+        android:background="@drawable/bg_white_thanks">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_bg_exit"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_12sdp"
+            android:text="Exit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_bg_continue"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_12sdp"
+            android:text="Continue" />
+
+    </LinearLayout>
+
+</LinearLayout>

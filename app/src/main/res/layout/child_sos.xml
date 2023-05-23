@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.sos.adapter.ChildSosVM" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item_sos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="3.2dp"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/clr_gray_light2"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/txt_sostitle_sos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:layout_toStartOf="@id/delete"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@{viewModel.title}"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/while_dark" />
+
+                <ImageView
+                    android:id="@+id/delete"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    app:srcCompat="@drawable/ic_delete"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="@{viewModel.showDelete?View.VISIBLE:View.GONE}"
+                    android:onClick="@{()->viewModel.onItemDeleted()}"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/txt_phonenumber_sos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{viewModel.number}"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    app:srcCompat="@drawable/ic_phone_call_sos"
+                    android:onClick="@{()->viewModel.onItemSelected()}"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

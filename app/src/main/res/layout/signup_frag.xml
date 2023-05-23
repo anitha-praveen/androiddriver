@@ -1,0 +1,543 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="androidx.fragment.app.Fragment" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.loginSignup.signup.SignupFragVM" />
+
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context="com.rodaClone.driver.ui.signupscreen.fragmentz.SignupFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context="com.aloTaxi.driver.ui.signupscreen.fragmentz.SignupFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/back_img"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:foreground="@drawable/ic_back_icon"
+                        android:foregroundGravity="center"
+                        app:backgroundTint="@color/white"
+                        app:elevation="@dimen/_10sdp"
+                        app:maxImageSize="@dimen/_2sdp"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+
+                </RelativeLayout>
+
+                <ScrollView
+                    android:id="@+id/scroll_view_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fadeScrollbars="false"
+                    android:scrollbarFadeDuration="0"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:onClick="@{viewModel::onClickOutSide}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/select_country"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="@{viewModel.translationModel.text_sign_up}"
+                            android:textColor="@color/clr_222B45"
+                            android:textSize="@dimen/_25sdp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/space"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_below="@+id/select_country" />
+
+
+                        <!--                    <RelativeLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:background="@color/clr_white">-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/img_profile_pic_signup"-->
+                        <!--                            android:layout_width="@dimen/_80sdp"-->
+                        <!--                            android:layout_height="@dimen/_80sdp"-->
+                        <!--                            android:layout_centerHorizontal="true"-->
+                        <!--                            android:layout_marginTop="@dimen/_80sdp"-->
+                        <!--                            android:onClick="@{viewModel::openGalaryorCamera}"-->
+                        <!--                            app:imageUrlProfile='@{viewModel.bitmap_profilePicture}'-->
+                        <!--                            app:srcCompat="@drawable/ic_user" />-->
+                        <!--                    </RelativeLayout>-->
+                        <LinearLayout
+                            android:id="@+id/layout_fname_lanme_signup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_fname"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/rect_curve"
+                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center_vertical"
+                                android:imeOptions="actionNext"
+                                android:inputType="textFilter"
+                                android:maxLength="10"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_5sdp"
+                                android:singleLine="true"
+                                android:text="@={viewModel.fname}"
+                                android:textColor="@color/clr_222B45"
+                                android:textColorHint="@color/clr_ACB1C0"
+                                android:textSize="@dimen/_12sdp"
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                            <!--                        android:hint="@{viewModel.translationModel.hint_first_name}"-->
+
+
+                            <!-- android:hint="@string/hint_first_name"-->
+
+                            <View
+                                android:layout_width="@dimen/_5sdp"
+                                android:layout_height="match_parent" />
+
+                            <EditText
+                                android:id="@+id/lname"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/rect_curve"
+                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center_vertical"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="10"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_5sdp"
+                                android:singleLine="true"
+                                android:text="@={viewModel.lname}"
+                                android:textColor="@color/clr_222B45"
+                                android:textColorHint="@color/clr_ACB1C0"
+                                android:textSize="@dimen/_12sdp"
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                            <!--                        android:hint="@{viewModel.translationModel.hint_last_name}"-->
+
+
+                            <!-- android:hint="@string/hint_last_name"-->
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edit_email_signup"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:layoutDirection="ltr"
+                            android:maxLength="50"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:text="@={viewModel.email}"
+                            android:textColor="@color/clr_222B45"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.txt_country_code}"
+                            android:textAllCaps="true"
+                            android:textColor="@color/clr_8992A3"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:id="@+id/LinearForgot"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:gravity="center"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:background="@drawable/rect_curve"
+                                android:layoutDirection="ltr"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:enabled="false"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:hint="+91"
+                                    android:layoutDirection="ltr"
+                                    android:maxLength="5"
+                                    android:paddingStart="@dimen/_10sdp"
+                                    android:paddingEnd="@dimen/_10sdp"
+                                    android:text="@={viewModel.countrycode}"
+                                    android:textColor="@color/clr_222B45"
+                                    android:textColorHint="@color/clr_8F9BB3"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:background="@drawable/rect_curve"
+                                android:layoutDirection="ltr"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:background="@null"
+                                    android:cursorVisible="false"
+                                    android:enabled="false"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:hint="@{viewModel.translationModel.hint_phone_number}"
+                                    android:inputType="phone"
+                                    android:layoutDirection="ltr"
+                                    android:maxLength="12"
+                                    android:text="@={viewModel.phonenumber}"
+                                    android:textColor="@color/clr_222B45"
+                                    android:textColorHint="@color/clr_8F9BB3"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/_5sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@{viewModel.translationModel.txt_service_location}"
+                                android:textAllCaps="true"
+                                android:textColor="@color/clr_8992A3"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/rect_curve"
+                                android:drawablePadding="16dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:onClick="@{()->viewModel.openServiceLocation()}"
+                                android:padding="12dp"
+                                android:text="@{viewModel.selectedServiceLocation}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/clr_ACB1C0"
+                                app:drawableEndCompat="@drawable/ic_down_arrow" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <CheckBox
+                                    android:id="@+id/ck_TandC"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text=""
+                                    android:theme="@style/MyCheckBox" />
+                                <!--                            android:checked="@={viewModel.isAccTnC}"-->
+
+                                <TextView
+                                    android:id="@+id/img_tandc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/_4sdp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textStyle="italic" />
+                                <!--                            android:text="@{viewModel.translationModel.text_agree}"-->
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="15dp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edit_refferal_code_signup"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:layoutDirection="ltr"
+                            android:maxLength="12"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:text="@={viewModel.referralCode}"
+                            android:textColor="@color/clr_222B45"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:visibility="gone"
+                            android:text="@{viewModel.translationModel.txt_category}"
+                            android:textAllCaps="true"
+                            android:textColor="@color/clr_8992A3"
+                            android:textSize="@dimen/_11sdp" />
+
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radioMale"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:button="@null"
+                                android:checked="@={viewModel.individualRadio}"
+                                android:drawableStart="@drawable/custom_radio_button"
+                                android:drawablePadding="@dimen/_10sdp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:onClick="@{()->viewModel.onIndividualClick()}"
+                                android:text="@{viewModel.translationModel.txt_type_individual}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <RadioButton
+                                android:id="@+id/radioFemale"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:button="@null"
+                                android:checked="@={viewModel.companyRadio}"
+                                android:drawableStart="@drawable/custom_radio_button"
+                                android:drawablePadding="@dimen/_10sdp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:onClick="@{()->viewModel.onCompanyClick()}"
+                                android:text="@{viewModel.translationModel.txt_type_company}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                        </RadioGroup>
+
+
+                        <TextView
+                            android:id="@+id/companyList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:drawablePadding="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:onClick="@{()->viewModel.openCompanySelection()}"
+                            android:padding="12dp"
+                            android:text="@{viewModel.selectedCompany}"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:visibility="@{viewModel.companyRadio?View.VISIBLE:View.GONE}"
+                            app:drawableEndCompat="@drawable/ic_down_arrow" />
+
+
+                        <EditText
+                            android:id="@+id/companyName"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:layoutDirection="ltr"
+                            android:maxLength="35"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:text="@={viewModel.companyName}"
+                            android:textColor="@color/clr_222B45"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_12sdp"
+                            android:visibility="@{viewModel.showOtherCompanyOptions?View.VISIBLE:View.GONE}"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <EditText
+                            android:id="@+id/companyPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:digits="1234567890"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:layoutDirection="ltr"
+                            android:maxLength="13"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:text="@={viewModel.companyPhone}"
+                            android:textColor="@color/clr_222B45"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_12sdp"
+                            android:visibility="@{viewModel.showOtherCompanyOptions?View.VISIBLE:View.GONE}"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <EditText
+                            android:id="@+id/companyVehicleNumbers"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/rect_curve"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:layoutDirection="ltr"
+                            android:maxLength="7"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:text="@={viewModel.companyVehicleNumbers}"
+                            android:textColor="@color/clr_222B45"
+                            android:textColorHint="@color/clr_ACB1C0"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_12sdp"
+                            android:visibility="@{viewModel.showOtherCompanyOptions?View.VISIBLE:View.GONE}"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/submit_butt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="end"
+                            android:onClick="@{()->viewModel.onClickConfirm()}"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="@color/clr_FB4A46"
+                            app:cardCornerRadius="@dimen/_3sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_medium"
+                                android:gravity="center_horizontal"
+                                android:padding="@dimen/_8sdp"
+                                android:text="@{viewModel.translationModel.txt_next}"
+                                android:textAllCaps="true"
+                                android:textColor="@color/buttonTextColor"
+                                android:textSize="@dimen/_12sdp" />
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+
+                </ScrollView>
+
+            </LinearLayout>
+
+            <!--        <include-->
+            <!--            android:id="@+id/progressBar"-->
+            <!--            layout="@layout/progress_dialog"-->
+            <!--            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />-->
+
+
+        </RelativeLayout>
+
+        <!--        <include-->
+        <!--            android:id="@+id/progressBar"-->
+        <!--            layout="@layout/progress_dialog"-->
+        <!--            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />-->
+
+
+    </RelativeLayout>
+
+</layout>

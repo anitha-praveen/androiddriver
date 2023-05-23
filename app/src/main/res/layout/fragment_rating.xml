@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.ratingFragment.RatingVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/rating_fragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:background="@drawable/ic_circle"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back_naviagation_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--            android:onClick="@{()->viewModel.onClickClose()}"-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/back"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_4sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{viewModel.translationModel.txt_rating}"
+                    android:textColor="@color/clr_2F2E2E"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="-80dp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/rating_submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline2">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/name_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{viewModel.userName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+                        android:id="@+id/trip_status_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/name_txt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@{viewModel.translationModel.trip_feed_back_txt}"
+                        android:textColor="@color/clr_2F2E2E"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/feedback_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/trip_status_txt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@{viewModel.translationModel.txt_improve_exp}"
+                        android:textAlignment="center"
+                        android:textColor="@color/txtColorGray" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/feedback_txt"
+                        android:layout_centerHorizontal="true"
+                        android:numStars="5"
+                        android:progressBackgroundTint="@color/clr_C4C4C4"
+                        android:progressTint="@color/colorPrimary"
+                        android:rating="@={viewModel.driverReview}"
+                        android:scaleX="0.60"
+                        android:scaleY="0.60"
+                        android:secondaryProgressTint="@color/colorPrimary"
+                        android:stepSize="0.1" />
+
+
+                    <EditText
+                        android:id="@+id/edit_comments_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_110sdp"
+                        android:layout_below="@id/ratingBar"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/edit_text_form_multiline"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="start"
+                        android:hint="@{viewModel.translationModel.txt_additional_cmt}"
+                        android:lines="4"
+                        android:maxLength="100"
+                        android:minLines="4"
+                        android:paddingStart="@dimen/_16sdp"
+                        android:paddingTop="@dimen/_14sdp"
+                        android:paddingEnd="@dimen/_16sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:text="@={viewModel.txt_comments}"
+                        android:textColor="@color/clr_222B45"
+                        android:textSize="@dimen/_10sdp" />
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBar"
+                        layout="@layout/progress_dialog"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+
+                </RelativeLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pro_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2">
+
+
+            <ImageView
+                android:id="@+id/profile_img"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_65sdp"
+                android:scaleType="fitXY"
+                app:imageUrlFeedback="@{viewModel.userPic}"
+                app:srcCompat="@drawable/profile_place_holder" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <Button
+            android:id="@+id/rating_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/btn_primary"
+            android:fontFamily="@font/roboto_bold"
+            android:minHeight="@dimen/_30sdp"
+            android:onClick="@{()->viewModel.updateReview()}"
+            android:text="@{viewModel.translationModel.text_submit}"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/clr_222B45"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:onClick="@{()->viewModel.hideKeyboard()}">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/rating_txt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@{viewModel.translationModel.txt_rating}"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/_14sdp" />-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_below="@+id/rating_txt"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginTop="@dimen/_12sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    app:cardBackgroundColor="@color/white"-->
+<!--                    app:cardCornerRadius="@dimen/_12sdp">-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/llout"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:id="@+id/profile"-->
+<!--                            android:layout_width="@dimen/_85sdp"-->
+<!--                            android:layout_height="@dimen/_85sdp">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="@dimen/_75sdp"-->
+<!--                                android:layout_height="@dimen/_75sdp"-->
+<!--                                android:layout_marginStart="@dimen/_10sdp"-->
+<!--                                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                                app:imageUrlFeedback="@{viewModel.userPic}"-->
+<!--                                app:srcCompat="@drawable/ic_prof_avatar" />-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_alignParentBottom="true"-->
+<!--                                android:layout_marginStart="@dimen/_10sdp"-->
+<!--                                android:visibility="gone"-->
+<!--                                app:srcCompat="@drawable/ic_tag" />-->
+
+<!--                        </RelativeLayout>-->
+
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="@dimen/_12sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                            android:layout_toEndOf="@+id/profile"-->
+<!--                            android:orientation="vertical">-->
+
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                android:fontFamily="@font/roboto_medium"-->
+<!--                                android:text="@{viewModel.userName}"-->
+<!--                                android:textColor="@color/clr_222B45"-->
+<!--                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                            <RatingBar-->
+<!--                                android:id="@+id/rating_user_feedback"-->
+<!--                                style="@style/customRatingBar"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="@dimen/_8sdp"-->
+<!--                                android:isIndicator="true"-->
+<!--                                android:numStars="5"-->
+<!--                                android:rating="@{viewModel.savedRating}" />-->
+
+
+<!--                        </LinearLayout>-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:id="@+id/line_divider"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@+id/profile"-->
+<!--                            android:layout_marginTop="@dimen/_20sdp">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/left_oval"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_alignParentEnd="true"-->
+<!--                                app:srcCompat="@drawable/left_oval" />-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/dottot_line"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="@dimen/_7sdp"-->
+<!--                                app:srcCompat="@drawable/linee" />-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/right_oval"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                app:srcCompat="@drawable/right_oval" />-->
+
+<!--                        </RelativeLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/feed_edit"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@+id/line_divider"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                                android:fontFamily="@font/roboto_medium"-->
+<!--                                android:text="@{viewModel.translationModel.txt_how_is_trip}"-->
+<!--                                android:textAllCaps="true"-->
+<!--                                android:textColor="@color/clr_222B45"-->
+<!--                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="@dimen/_10sdp"-->
+<!--                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                                android:fontFamily="@font/roboto_regular"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="@{viewModel.translationModel.txt_feed_desc}"-->
+<!--                                android:textColor="@color/clr_ACB1C0"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <RatingBar-->
+<!--                                android:id="@+id/ratingBar"-->
+<!--                                style="@style/customRatingBar"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                                android:numStars="5"-->
+<!--                                android:rating="@={viewModel.driverReview}" />-->
+
+<!--                            <EditText-->
+<!--                                android:id="@+id/edit_comments_feedback"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="@dimen/_125sdp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginLeft="@dimen/_8sdp"-->
+<!--                                android:layout_marginTop="@dimen/_25sdp"-->
+<!--                                android:layout_marginRight="@dimen/_8sdp"-->
+<!--                                android:layout_marginBottom="@dimen/_20sdp"-->
+<!--                                android:background="@drawable/edit_text_form_multiline"-->
+<!--                                android:fontFamily="@font/roboto_regular"-->
+<!--                                android:gravity="start"-->
+<!--                                android:hint="@{viewModel.translationModel.txt_additional_cmt}"-->
+<!--                                android:lines="4"-->
+<!--                                android:maxLength="100"-->
+<!--                                android:minLines="4"-->
+<!--                                android:paddingStart="@dimen/_16sdp"-->
+<!--                                android:paddingTop="@dimen/_14sdp"-->
+<!--                                android:paddingEnd="@dimen/_16sdp"-->
+<!--                                android:paddingBottom="@dimen/_14sdp"-->
+<!--                                android:text="@={viewModel.txt_comments}"-->
+<!--                                android:textColor="@color/clr_222B45"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        <androidx.cardview.widget.CardView-->
+<!--                            android:id="@+id/submit_butt"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@+id/feed_edit"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:layout_marginLeft="@dimen/_18sdp"-->
+<!--                            android:layout_marginTop="@dimen/_15sdp"-->
+<!--                            android:layout_marginRight="@dimen/_18sdp"-->
+<!--                            android:clickable="true"-->
+<!--                            android:focusable="true"-->
+<!--                            android:gravity="end"-->
+<!--                            android:onClick="@{()->viewModel.updateReview()}"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            app:cardBackgroundColor="@color/clr_FB4A46"-->
+<!--                            app:cardCornerRadius="@dimen/_3sdp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:fontFamily="@font/roboto_medium"-->
+<!--                                android:gravity="center_horizontal"-->
+<!--                                android:padding="@dimen/_8sdp"-->
+<!--                                android:text="@{viewModel.translationModel.text_submit}"-->
+<!--                                android:textAllCaps="true"-->
+<!--                                android:textColor="@color/buttonTextColor"-->
+<!--                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                        </androidx.cardview.widget.CardView>-->
+
+<!--                        <View-->
+<!--                            android:id="@+id/space"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_20sdp"-->
+<!--                            android:layout_below="@+id/submit_butt" />-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--            </RelativeLayout>-->
+
+<!--        </ScrollView>-->
+
+<!--        <include-->
+<!--            android:id="@+id/progressBar"-->
+<!--            layout="@layout/progress_dialog"-->
+<!--            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />-->
+
+<!--    </RelativeLayout>-->
+
+</layout>

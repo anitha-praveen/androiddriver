@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.refferal.ReferralVM" />
+
+    </data>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/white"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <com.google.android.material.appbar.AppBarLayout-->
+<!--                android:id="@+id/appBarLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/white"-->
+<!--                app:elevation="0dp">-->
+
+<!--                <androidx.appcompat.widget.Toolbar-->
+<!--                    android:id="@+id/toolbar"-->
+<!--                    style="@style/Toolbar"-->
+<!--                    app:navigationIcon="@drawable/back_nav"-->
+<!--                    app:titleTextAppearance="@style/Toolbar.TitleText"-->
+<!--                    app:titleTextColor="@color/clr_transparent" />-->
+
+<!--            </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/refferal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_16sdp"-->
+<!--                android:layout_marginTop="@dimen/_4sdp"-->
+<!--                android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:text="@{viewModel.translationModel.refferal_code}"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_20sdp" />-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_12sdp"-->
+<!--                android:layout_marginTop="@dimen/_25sdp"-->
+<!--                android:layout_marginEnd="@dimen/_12sdp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@+id/refferal_amnt"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:text="@{viewModel.translationModel.Txt_ExistingReferral}"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_14sdp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/refferal_amnt"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:background="@drawable/refferal_bubble"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@{viewModel.currencySymbol + viewModel.prize}"-->
+<!--                    android:textColor="@color/while_dark"-->
+<!--                    android:textSize="@dimen/_14sdp" />-->
+
+<!--            </RelativeLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="@dimen/_40sdp"-->
+<!--                android:background="#F7F9Fc"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@{viewModel.translationModel.Txt_YourReferral}"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_14sdp" />-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginStart="@dimen/_15sdp"-->
+<!--                    android:layout_marginTop="@dimen/_25sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_15sdp"-->
+<!--                    android:background="@drawable/dotted_bg"-->
+<!--                    android:visibility="visible">-->
+
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:fontFamily="@font/roboto_medium"-->
+<!--                        android:text="@={viewModel.code}"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_15sdp" />-->
+
+
+<!--                </RelativeLayout>-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_35sdp"-->
+<!--                    android:layout_marginStart="@dimen/_15sdp"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_15sdp"-->
+<!--                    android:background="@drawable/green_curve_border"-->
+<!--                    android:onClick="@{viewModel::onclickShare}">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:srcCompat="@drawable/ic_share" />-->
+
+<!--                        <androidx.legacy.widget.Space-->
+<!--                            android:layout_width="@dimen/_8sdp"-->
+<!--                            android:layout_height="wrap_content" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/phone_cntact"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:fontFamily="@font/roboto_medium"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="@{viewModel.translationModel.text_share}"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                    </LinearLayout>-->
+
+<!--                </RelativeLayout>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+
+<!--        <include-->
+<!--            android:id="@+id/progressBar"-->
+<!--            layout="@layout/progress_dialog"-->
+<!--            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />-->
+
+<!--    </RelativeLayout>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/white">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back_img"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="@dimen/_10sdp"
+                android:foreground="@drawable/ic_back_icon"
+                android:foregroundGravity="center"
+                app:backgroundTint="@color/white"
+                app:maxImageSize="@dimen/_2sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/back_img"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_4sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{viewModel.translationModel.refferal_code}"
+                    android:textColor="@color/clr_2F2E2E"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/inviteFriends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/relativeLayout4"
+            android:text="@{viewModel.translationModel.txt_invite_friends}"
+            android:textColor="@color/clr_2F2E2E"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginTop="@dimen/_30sdp"/>
+
+
+        <TextView
+            android:id="@+id/inviteAdditional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.refContent}"
+            android:layout_below="@id/inviteFriends"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/clr_2F2E2E"
+            android:textSize="@dimen/_11sdp"/>
+
+        <RelativeLayout
+            android:id="@+id/totalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inviteAdditional"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewModel.translationModel.txt_total_referral_amount}"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/_15sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewModel.refAmount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_below="@+id/totalAmount"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <ImageView
+                android:id="@+id/tree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/ic_tree" />
+
+            <ImageView
+                android:id="@+id/minion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/tree"
+                android:background="@drawable/ic_refferal_minion" />
+
+            <RelativeLayout
+                android:id="@+id/referralCode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/tree"
+                android:layout_marginStart="@dimen/_minus35sdp"
+                android:layout_above="@+id/minion">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{viewModel.translationModel.txt_your_referral_code}"
+                        android:textColor="@color/clr_2F2E2E"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/ic_refferal_code_bg"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_16sdp"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_16sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:text="@{viewModel.code}"
+                        android:textColor="@color/clr_2F2E2E"
+                        android:textSize="@dimen/_11sdp" />
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:text="@{viewModel.translationModel.text_share}"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_bold"
+            android:enabled="@{!viewModel.isLoading}"
+            android:onClick="@{()->viewModel.onClickShare()}"
+            android:layout_alignParentBottom="true"/>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

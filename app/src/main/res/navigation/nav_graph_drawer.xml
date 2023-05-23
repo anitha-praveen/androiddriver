@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/map_fragment">
+
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.rodaClone.driver.drawer.mapfragment.MapFragment"
+        android:label="@string/txt_Home"
+        tools:layout="@layout/fragment_map">
+
+
+        <action
+            android:id="@+id/map_to_instantTrip"
+            app:destination="@+id/instant_trip" />
+
+        <action
+            android:id="@+id/map_to_sos"
+            app:destination="@+id/sos" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile_frag"
+        android:name="com.rodaClone.driver.drawer.profile.ProfileFragment"
+        android:label="@string/text_profile"
+        tools:layout="@layout/profile_frag_lay">
+
+
+        <action
+            android:id="@+id/profile_to_veh_info"
+            app:destination="@id/vehicle_info_frag" />
+
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/vehicle_info_frag"
+        android:name="com.rodaClone.driver.drawer.vehicleInformation.VehicleInfoFragment"
+        android:label="@string/text_profile"
+        tools:layout="@layout/fragment_vehicle_info">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/approval_decline"
+        android:name="com.rodaClone.driver.drawer.approvalDecline.ApprovalFragment"
+        android:label="@string/approvalFrag"
+        tools:layout="@layout/approval_decline">
+
+
+        <action
+            android:id="@+id/approvalToDocuments"
+            app:destination="@+id/document_list" />
+
+        <action
+            android:id="@+id/approvalToSubscription"
+            app:destination="@id/subscription" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/trip_bill_frag"
+        android:name="com.rodaClone.driver.drawer.tripBill.TripBillFrag"
+        android:label="tripbill"
+        tools:layout="@layout/trip_bill_lay">
+
+        <action
+            android:id="@+id/invoice_to_rating"
+            app:destination="@id/rating"
+            app:popUpTo="@id/map_fragment" />
+        <action
+            android:id="@+id/invoice_to_map"
+            app:destination="@+id/map_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/trip"
+        android:name="com.rodaClone.driver.drawer.trip.TripFragment"
+        android:label="Trip Frag"
+        tools:layout="@layout/trip_frag_lay">
+
+
+        <action
+            android:id="@+id/trip_to_tripbill"
+            app:destination="@id/trip_bill_frag"
+            app:popUpTo="@id/map_fragment" />
+
+        <action
+            android:id="@+id/trip_to_trip_cancel"
+            app:destination="@+id/trip_cancelled"
+            app:popUpTo="@id/map_fragment" />
+
+
+        <action
+            android:id="@+id/trip_to_sos"
+            app:destination="@+id/sos" />
+
+
+    </fragment>
+
+
+
+
+    <fragment
+        android:id="@+id/document_list"
+        android:name="com.rodaClone.driver.drawer.document.documentsList.DocumentsListFragment"
+        android:label="Manage Documents"
+        tools:layout="@layout/fragment_document_list" />
+
+    <fragment
+        android:id="@+id/support"
+        android:name="com.rodaClone.driver.drawer.support.SupportFragment"
+        android:label="Support"
+        tools:layout="@layout/fragment_support">
+
+        <action
+            android:id="@+id/support_to_complaints"
+            app:destination="@+id/complaints" />
+
+        <action
+            android:id="@+id/support_to_faq"
+            app:destination="@+id/faq" />
+
+        <action
+            android:id="@+id/support_to_sos"
+            app:destination="@+id/sos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/complaints"
+        android:name="com.rodaClone.driver.drawer.complaints.ComplaintsFragment"
+        android:label="Complaints"
+        tools:layout="@layout/fragment_complaints">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/faq"
+        android:name="com.rodaClone.driver.drawer.faq.FaqFragment"
+        android:label="FAQ"
+        tools:layout="@layout/fragment_faq" />
+
+    <fragment
+        android:id="@+id/sos"
+        android:name="com.rodaClone.driver.drawer.sos.SosFragment"
+        android:label="SOS"
+        tools:layout="@layout/fragment_sos" />
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.rodaClone.driver.drawer.dashboard.DashBoardFragment"
+        android:label="DashBoard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/history"
+        android:name="com.rodaClone.driver.drawer.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history">
+
+        <action
+            android:id="@+id/history_to_invoice"
+            app:destination="@id/invoice" />
+        <action
+            android:id="@+id/go_to_complaints"
+            app:destination="@id/complaints"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/referral"
+        android:name="com.rodaClone.driver.drawer.refferal.ReferralFragment"
+        android:label="Referral"
+        tools:layout="@layout/fragment_referral" />
+
+    <fragment
+        android:id="@+id/notification"
+        android:name="com.rodaClone.driver.drawer.notification.NotificationFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/invoice"
+        android:name="com.rodaClone.driver.drawer.invoice.InvoiceFragment"
+        android:label="Invoice"
+        tools:layout="@layout/fragment_invoice">
+
+
+        <action
+            android:id="@+id/invoice_to_rating"
+            app:destination="@id/rating"
+            app:popUpTo="@id/map_fragment" />
+
+        <action
+            android:id="@+id/invoice_to_complaints"
+            app:destination="@+id/complaints" />
+        <action
+            android:id="@+id/invoice_to_map"
+            app:destination="@+id/map_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rating"
+        android:name="com.rodaClone.driver.drawer.ratingFragment.RatingFragment"
+        android:label="Rating"
+        tools:layout="@layout/fragment_rating" />
+
+    <fragment
+        android:id="@+id/trip_cancelled"
+        android:name="com.rodaClone.driver.drawer.tripCancelled.TripCancelledFragment"
+        android:label="Trip Cancelled"
+        tools:layout="@layout/fragment_trip_cancel">
+
+
+
+
+        <action
+            android:id="@+id/cancel_to_trip"
+            app:destination="@+id/trip" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/wallet"
+        android:name="com.rodaClone.driver.drawer.wallet.WalletFragment"
+        android:label="Wallet"
+        tools:layout="@layout/fragment_wallet">
+        <action
+            android:id="@+id/wallet_to_invoice"
+            app:destination="@+id/invoice" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscription"
+        android:name="com.rodaClone.driver.drawer.subsription.SubscriptionFragment"
+        android:label="Subscription"
+        tools:layout="@layout/fragment_subscription" />
+    <fragment
+        android:id="@+id/instant_trip"
+        android:name="com.rodaClone.driver.drawer.mapfragment.instantTrip.InstantTripFrag"
+        android:label="InstantTrip"
+        tools:layout="@layout/frag_instant_trip">
+
+        <action
+            android:id="@+id/instant_to_searchPlace"
+            app:destination="@+id/search_place" />
+        <action
+            android:id="@+id/instant_to_trip"
+            app:destination="@+id/trip" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_place"
+        android:name="com.rodaClone.driver.drawer.searchPlace.FragSearchPlace"
+        android:label="SearchPlace"
+        tools:layout="@layout/frag_search_place">
+
+        <action
+            android:id="@+id/search_place_to_instant_trip"
+            app:destination="@+id/instant_trip" />
+    </fragment>
+    <fragment
+        android:id="@+id/app_status"
+        android:name="com.rodaClone.driver.drawer.appStatus.AppStatusFrag"
+        android:label="AppStatus"
+        tools:layout="@layout/app_status_frag" />
+
+    <fragment
+        android:id="@+id/language"
+        android:name="com.rodaClone.driver.drawer.language.LanguageFrag"
+        android:label="Language"
+        tools:layout="@layout/fragment_languages"/>
+
+    <fragment
+        android:id="@+id/uploadDocument"
+        android:name="com.rodaClone.driver.drawer.document.uploadDocument.UploadDocument"
+        android:label="@string/label_upload_document"
+        tools:layout="@layout/upload_document_fragment"/>
+
+    <fragment
+        android:id="@+id/nav_respond_request"
+        android:name="com.rodaClone.driver.acceptReject.RespondRequest"
+        android:label="@string/label_respond_request"
+        tools:layout="@layout/accept_reject_lay" />
+
+
+</navigation>

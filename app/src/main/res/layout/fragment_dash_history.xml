@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.dashboard.dashHistory.DashHistoryVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/clr_F7F9FC">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/day_bal_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardMaxElevation="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/total_trips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:text="@{viewModel.translationModel.total_trips}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/trip_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/total_trips"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.totalTrip}"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/no_of_trips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_below="@+id/trip_count"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.txt_completed}"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <View
+                            android:id="@+id/space"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="@color/colorPrimary"
+                            android:layout_below="@+id/no_of_trips" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardMaxElevation="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/weekly_trip_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.txt_weekly_trip}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+                        <TextView
+                            android:id="@+id/weekly_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/weekly_trip_txt"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.weekly_trips}"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:textColor="@color/clr_FB4A46"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/weekly_trip_cmp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/weekly_count"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.txt_completed}"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <View
+                            android:id="@+id/weekly_space"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="@color/clr_00AE73"
+                            android:layout_below="@+id/weekly_trip_cmp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/lastTrip_surevy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardMaxElevation="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/monthly_trip_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:text="@{viewModel.translationModel.txt_monthly_trip}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+                        <TextView
+                            android:id="@+id/month_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/monthly_trip_txt"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.monthly_trips}"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/drivers_last_trip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/month_count"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="@{viewModel.translationModel.txt_completed}"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <View
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:id="@+id/driver_space"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@color/clr_5497FF"
+                            android:layout_below="@+id/drivers_last_trip" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/history_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/day_bal_lay"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:text="@{viewModel.translationModel.text_header1}"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:id="@+id/money_gained"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/history_header"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardMaxElevation="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/cash_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_centerHorizontal="true"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:text="@{viewModel.translationModel.txt_cash}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:id="@+id/imageCash"
+                            android:layout_width="@dimen/_26sdp"
+                            android:layout_height="@dimen/_26sdp"
+                            android:layout_below="@+id/cash_txt"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            app:srcCompat="@drawable/ic_cash" />
+
+                        <TextView
+                            android:id="@+id/cash_amnt"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageCash"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.total_cash}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/total_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cash_amnt"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:text="@{viewModel.translationModel.text_total_amt}"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <View
+                            android:id="@+id/cash_space"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="@color/clr_FB4A46"
+                            android:layout_below="@+id/total_amnt"
+                            android:layout_height="4dp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/_8sdp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    app:cardMaxElevation="@dimen/_2sdp"-->
+<!--                    app:cardUseCompatPadding="true">-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/credit_txt"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="@dimen/_5sdp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:text="@{viewModel.translationModel.text_credit}"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageCrditCArd"-->
+<!--                            android:layout_width="@dimen/_26sdp"-->
+<!--                            android:layout_height="@dimen/_26sdp"-->
+<!--                            android:layout_below="@+id/credit_txt"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="@dimen/_8sdp"-->
+<!--                            app:srcCompat="@drawable/ic_creditcard_dash" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/credit_amnt"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@+id/imageCrditCArd"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginStart="@dimen/_5sdp"-->
+<!--                            android:layout_marginTop="@dimen/_8sdp"-->
+<!--                            android:singleLine="true"-->
+<!--                            android:text="@{viewModel.total_card}"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_14sdp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/credit_total_amnt"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@+id/credit_amnt"-->
+<!--                            android:layout_marginStart="@dimen/_5sdp"-->
+<!--                            android:text="@{viewModel.translationModel.text_total_amt}"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                        <View-->
+<!--                            android:layout_marginTop="@dimen/_4sdp"-->
+<!--                            android:background="@color/clr_00AE73"-->
+<!--                            android:id="@+id/credit_space"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="4dp"-->
+<!--                            android:layout_below="@+id/credit_total_amnt" />-->
+
+<!--                    </RelativeLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/wallet_survey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardMaxElevation="@dimen/_4sdp"
+                    android:visibility="gone"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/wallet_txt"
+                            android:textAllCaps="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@{viewModel.translationModel.txt_wallet}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ImageView
+                            android:id="@+id/imageWallet"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/wallet_txt"
+                            app:srcCompat="@drawable/ic_wallet_dash"
+                            android:layout_width="@dimen/_26sdp"
+                            android:layout_height="@dimen/_26sdp"/>
+                        <TextView
+                            android:id="@+id/wallet_amnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageWallet"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.total_wallet}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/total_amnt_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/wallet_amnt"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_centerHorizontal="true"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:text="@{viewModel.translationModel.text_total_amt}"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <View
+                            android:background="@color/clr_5497FF"
+                            android:id="@+id/wallet_space"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_below="@+id/total_amnt_txt" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_below="@+id/money_gained"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:visibility="visible" />
+
+
+            <View
+                android:id="@+id/chartSpace"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_below="@+id/pie_chart" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</layout>

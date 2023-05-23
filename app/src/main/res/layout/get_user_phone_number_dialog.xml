@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@color/clr_transparent"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/_56sdp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/curved_border_background_white">
+
+        <RelativeLayout
+            android:id="@+id/connect_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/enter_pass_no_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_toStartOf="@+id/close"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/enter_passenger_number"
+                android:textColor="@color/clr_222B45"
+                android:textSize="@dimen/_16sdp" />
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/close"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_close_reject" />
+
+            <EditText
+                android:id="@+id/user_phone_number"
+                style="@style/EditTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/enter_pass_no_txt"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/rect_curve"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_passenger_phone_number"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:layoutDirection="ltr"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textColor="@color/clr_222B45"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_12sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/instant_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/user_phone_number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="@dimen/_5sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/start_trip"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>

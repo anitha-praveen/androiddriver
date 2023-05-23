@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/otp_one_edit_text"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/rect_curve_bordered"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:minWidth="30dp"
+        android:nextFocusLeft="@+id/otp_one_edit_text"
+        android:nextFocusRight="@+id/otp_two_edit_text"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/otp_two_edit_text"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/rect_curve_bordered"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_one_edit_text"
+        android:nextFocusRight="@+id/otp_three_edit_text"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/otp_three_edit_text"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/rect_curve_bordered"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_two_edit_text"
+        android:nextFocusRight="@+id/otp_four_edit_text"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/otp_four_edit_text"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/rect_curve_bordered"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_three_edit_text"
+        android:nextFocusRight="@+id/otp_five_edit_text"
+        android:textColor="@color/clr_222B45"
+        android:textSize="@dimen/_14sdp" />
+
+</LinearLayout>

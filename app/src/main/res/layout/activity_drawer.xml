@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.DrawerVM" />
+
+        <import type="android.view.View" />
+
+        <import type="com.rodaClone.driver.BuildConfig" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/CoordinatorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                tools:context="com.rodaClone.client.ui.drawerscreen.DrawerAct">
+
+                <RelativeLayout
+                    android:id="@+id/activityMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/content_drawer" />
+
+                </RelativeLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".drawer.DrawerActivity">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/nav_host_fragment_content_main"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/nav_graph_drawer" />
+
+
+
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/currentLoc"
+                    android:layout_above="@+id/onlineLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{()->viewModel.onClickCurrentLoc()}"
+                    app:backgroundTint="@color/white"
+                    app:borderWidth="0dp"
+                    app:elevation="6dp"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/clr_gray_light2"
+                    app:srcCompat="@drawable/ic_gps_fixed"
+                    android:visibility="@{viewModel.showProfilePic?View.VISIBLE:View.GONE}"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/onlineLayout"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_above="@id/layout_availability_info"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@{viewModel.setToglleStatus?@drawable/border_rect_red:@drawable/border_rect_curve}"
+                    android:visibility="@{viewModel.showProfilePic?View.VISIBLE:View.GONE}">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_compat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:checked="@{viewModel.setToglleStatus?true:false}"
+                        android:textColor="@color/white"
+                        android:thumb="@{viewModel.setToglleStatus?@drawable/online_button:@drawable/offline_button}"
+                        app:track="@color/clr_transparent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_availability_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/while_dark"
+                    android:visibility="@{viewModel.showProfilePic?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:id="@+id/txt_DriverStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:padding="@dimen/_8sdp"
+                        android:text='@{viewModel.setToglleStatus?viewModel.translationModel.txt_Online:viewModel.translationModel.txt_Offline}'
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <View
+                        android:id="@+id/line_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/txt_DriverStatus"
+                        android:background="@color/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line_status"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:visibility="@{viewModel.setToglleStatus?View.VISIBLE:View.GONE}">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="center"
+                                android:text="@{viewModel.translationModel.txt_tdy_status}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <!--                        android:text="@{viewModel.todayTrips + ` / ` + viewModel.walletCurrency + viewModel.todayEarnings}"-->
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:gravity="center"
+                                android:text="@{viewModel.completed}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:gravity="center"
+                                android:text="@{viewModel.cancelled}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="1dp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="center"
+                                android:text="@{viewModel.translationModel.txt_earnings}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:gravity="center"
+                                android:text="@{viewModel.earnings}"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="center"
+                                android:text="@{viewModel.translationModel.txt_wallet_bal}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="center"
+                                android:text="@{viewModel.wallet}"
+                                android:textColor="@{viewModel.walletColor?@color/dab_red:@color/black}"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_view"
+                style="@style/Widget.Design.NavigationView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                app:itemBackground="@color/white"
+                app:itemHorizontalPadding="@dimen/_20sdp"
+                app:itemIconTint="@color/clr_000000"
+                app:itemTextAppearance="@style/SideMenuFont"
+                app:itemTextColor="@color/black"
+                app:menu="@menu/activity_drawer_drawer" />
+
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+        <ImageView
+            android:id="@+id/menu_ham"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:background="@drawable/ic_ham"
+            android:onClick="@{()->viewModel.onMenuClick()}"
+            android:padding="@dimen/_7sdp"
+            android:scaleType="fitXY"
+            android:visibility="@{viewModel.showProfilePic?View.VISIBLE:View.GONE}"
+            app:srcCompat="@drawable/profile_place_holder" />
+
+
+    </FrameLayout>
+</layout>

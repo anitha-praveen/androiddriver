@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/getStartedScreen">
+
+    <fragment
+        android:id="@+id/getStartedScreen"
+        android:name="com.rodaClone.driver.loginSignup.getStarteedScrn.GetStartedScreen"
+        android:label="Get Started"
+        tools:layout="@layout/fragment_get_started">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/tourGuide"
+        android:name="com.rodaClone.driver.loginSignup.tour.TourGuideFrag"
+        android:label="tour guide"
+        tools:layout="@layout/fragment_tour_guide">
+
+        <action
+            android:id="@+id/tourGuideToLogin"
+            app:destination="@id/login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.rodaClone.driver.loginSignup.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/toOtp"
+            app:destination="@+id/otp" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/otp"
+        android:name="com.rodaClone.driver.loginSignup.otp.OtpFragment"
+        android:label="Otp"
+        tools:layout="@layout/fragment_otp">
+
+
+        <action
+            android:id="@+id/toSignup"
+            app:destination="@+id/signup" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signup"
+        android:name="com.rodaClone.driver.loginSignup.signup.SignupFragFragment"
+        android:label="SignUp"
+        tools:layout="@layout/signup_frag">
+
+
+        <action
+            android:id="@+id/toVehicle"
+            app:destination="@+id/vehicle" />
+
+        <action
+            android:id="@+id/SignuptoLogin"
+            app:destination="@+id/login" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/vehicle"
+        android:name="com.rodaClone.driver.loginSignup.vehicleFrag.VehicleFragment"
+        android:label="Vehicle"
+        tools:layout="@layout/vehicle_intro_frag" >
+
+
+    </fragment>
+</navigation>

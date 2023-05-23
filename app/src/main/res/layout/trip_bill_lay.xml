@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rodaClone.driver.drawer.tripBill.TripBillVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_350sdp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewModel.totaltAmount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_50sdp" />
+
+            <TextView
+                android:id="@+id/price_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:text="@{viewModel.cashDescription}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="@{viewModel::onClickConfirm}"
+            android:text="@{viewModel.translationModel.Txt_Continue}"
+            android:textAllCaps="false"
+            android:enabled="@{viewModel.isContinueEnabled}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:cornerRadius="@dimen/_3sdp" />
+
+    </RelativeLayout>
+
+</layout>

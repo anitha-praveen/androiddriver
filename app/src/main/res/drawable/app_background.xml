@@ -1,0 +1,19 @@
+<!--<vector xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:aapt="http://schemas.android.com/aapt"--><!--android:width="211dp"--><!--android:height="211dp"--><!--android:viewportWidth="211"--><!--android:viewportHeight="211">--><!--<path--><!--android:pathData="M0,0h211v211h-211z">--><!--<aapt:attr name="android:fillColor">--><!--<gradient --><!--android:startY="106"--><!--android:startX="0"--><!--android:endY="106"--><!--android:endX="211"--><!--android:type="linear">--><!--<item android:offset="0" android:color="#FF61C0D4"/>--><!--<item android:offset="1" android:color="#FFA3EDE0"/>--><!--</gradient>--><!--</aapt:attr>--><!--</path>--><!--</vector>-->
+
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+<!--    <corners android:radius="@dimen/_5sdp"/>-->
+
+<!--    <gradient-->
+<!--        android:angle="0"-->
+<!--        android:endColor="#FB4A46"-->
+<!--        android:startColor="#FB4A46"-->
+<!--        android:type="linear" />-->
+
+    <solid android:color="@color/white" />
+
+</shape>
+    <!--android:centerColor="#4C8BBF"-->
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_13sdp"
+    android:layout_marginStart="@dimen/_2sdp">
+
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="eff"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp" />
+
+    <TextView
+        android:id="@+id/countryCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:textStyle="bold"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_toEndOf="@+id/country_name"
+        android:fontFamily="@font/roboto_regular"
+        android:text="vkfnvkfvkl"
+        android:textColor="@color/clr_ACB1C0"
+        android:textSize="@dimen/_13sdp" />
+
+
+</RelativeLayout>
